@@ -1,0 +1,16 @@
+.button {
+  margin-right: 10px;
+  border-radius: 10px;
+  border-color: blue;
+  background: blue;
+  color: white;
+  width: 50;
+  padding: 5px;
+}
+
+.button:hover,
+:focus {
+  background-color: green;
+  border-color: green;
+  cursor: pointer;
+}
