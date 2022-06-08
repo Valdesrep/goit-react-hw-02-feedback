@@ -5,10 +5,10 @@ const Statisctic = ({ good, neutral, bad, total, positivePercentage }) => {
     <ul>
       <li>Good: {good}</li>
       <li>Neutral: {neutral}</li>
-      <li>Bad: Bad {bad}</li>
+      <li>Bad: {bad}</li>
       <li>Total: {total}</li>
       <li>
-        Positive: {Number.isNaN(positivePercentage) ? 0 : positivePercentage}%
+      Positive:  : {positivePercentage}%
       </li>
     </ul>
   );

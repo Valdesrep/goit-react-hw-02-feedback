@@ -16,29 +16,21 @@ export class App extends Component {
     return;
   };
 
-  getTotal() {
-    this.total = this.state.good + this.state.neutral + this.state.bad;
-    return this.total;
-  }
-  getPositivekPercentage() {
-    this.positiveFeedbackPercentage = Math.round(
-      (this.state.good / this.getTotal()) * 100
-    );
-    return this.positiveFeedbackPercentage;
-  }
+  getTotal = () => {
+    const feedback = Object.values(this.state);
+    return feedback.reduce((total, feedback) => total + feedback, 0);
+  };
 
   render() {
-    const positive = this.getPositivekPercentage();
+    const options = Object.keys(this.state);
+    const positive = Math.round((this.state.good / this.getTotal()) * 100);
     const { good, neutral, bad } = this.state;
     const total = this.getTotal();
 
     return (
       <>
         <Section title="Please leave feedback">
-          <FeedbackOptions
-            options={['good', 'neutral', 'bad']}
-            onLeaveFeedback={this.setStats}
-          />
+          <FeedbackOptions options={options} onLeaveFeedback={this.setStats} />
         </Section>
         <Section title="Statisctic">
           {total > 0 ? (
